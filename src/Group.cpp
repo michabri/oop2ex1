@@ -24,14 +24,14 @@ std::vector<int> Group::getGroup() const {
 	return m_group;
 }
 //-----------------------------------------------------------------------------
-std::ostream& operator<<(std::ostream& os, const Group& group)
+std::ostream& operator<<(std::ostream& os1, const Group& group)
 {
-	os << "{ ";
+	os1 << "{ ";
 	for (int i = 0; i < group.getGroup().size(); i++)
 	{
-		os << group.getGroup()[i] ;
+		os1 << group.getGroup()[i] ;
 		if (i < group.getGroup().size() - 1)
-			os << ", ";
+			os1 << ", ";
 	}
-	os << " }";
+	os1 << " }";
 }

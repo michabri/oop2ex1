@@ -1,8 +1,14 @@
 #include "Group.h"
 
 //-----------------------------------------------------------------------------
-Group::Group() {
-	inputGroup;
+Group::Group() 
+{
+	inputGroup();
+}
+//-----------------------------------------------------------------------------
+Group::Group(const std::vector<int> group)
+{
+	m_group = group;
 }
 //-----------------------------------------------------------------------------
 void Group::inputGroup() 
@@ -14,13 +20,13 @@ void Group::inputGroup()
 		std::cin >> num;
 		m_group.push_back(num);
 	}
+	std::ranges::sort(m_group);
+	auto [newEnd, end] = std::ranges::unique(m_group);
+	m_group.erase(newEnd, end);
 }
 //-----------------------------------------------------------------------------
-Group::Group(const std::vector<int> group) {
-	m_group = group;
-}
-//-----------------------------------------------------------------------------
-std::vector<int> Group::getGroup() const {
+std::vector<int> Group::getGroup() const 
+{
 	return m_group;
 }
 //-----------------------------------------------------------------------------
@@ -34,4 +40,5 @@ std::ostream& operator<<(std::ostream& os, const Group& group)
 			os << ", ";
 	}
 	os << " }";
+	return os;
 }

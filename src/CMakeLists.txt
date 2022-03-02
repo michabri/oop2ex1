@@ -1,0 +1,10 @@
+﻿target_sources (oop2_ex01 PRIVATE "main.cpp"
+                                   "Action.cpp"
+                                   "Calculator.cpp"
+                                   "Composite.cpp"
+                                   "Difference.cpp"
+                                   "Group.cpp"
+                                   "Intersection.cpp"
+                                   "Product.cpp"
+                                   "Union.cpp"
+                                  )

@@ -25,14 +25,14 @@ std::vector<int> Group::getGroup() const {
 }
 //-----------------------------------------------------------------------------
 //micha ha gever ha hatich
-std::ostream& operator<<(std::ostream& os, const Group& group)
+std::ostream& operator<<(std::ostream& os2, const Group& group)
 {
-	os << "{ ";
+	os2 << "{ ";
 	for (int i = 0; i < group.getGroup().size(); i++)
 	{
-		os << group.getGroup()[i] ;
+		os2 << group.getGroup()[i] ;
 		if (i < group.getGroup().size() - 1)
-			os << ", ";
+			os2 << ", ";
 	}
-	os << " }";
+	os2 << " }";
 }

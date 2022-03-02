@@ -24,6 +24,7 @@ std::vector<int> Group::getGroup() const {
 	return m_group;
 }
 //-----------------------------------------------------------------------------
+//micha ha gever ha hatich
 std::ostream& operator<<(std::ostream& os, const Group& group)
 {
 	os << "{ ";

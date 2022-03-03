@@ -4,6 +4,8 @@
 Calculator::Calculator() 
 {
 	m_menu_actions.push_back(std::make_shared<Union>());
+	m_menu_actions.push_back(std::make_shared<Intersection>());
+	m_menu_actions.push_back(std::make_shared<Difference>());
 }
 //-----------------------------------------------------------------------------
 void Calculator::run() 
@@ -18,6 +20,18 @@ void Calculator::run()
 			int action1, action2;
 			std::cin >> action1 >> action2;
 			m_menu_actions.push_back(std::make_shared<Union>(m_menu_actions[action1], m_menu_actions[action2]));
+		}
+		else if (input == "inter")
+		{
+			int action1, action2;
+			std::cin >> action1 >> action2;
+			m_menu_actions.push_back(std::make_shared<Intersection>(m_menu_actions[action1], m_menu_actions[action2]));
+		}
+		else if (input == "diff")
+		{
+			int action1, action2;
+			std::cin >> action1 >> action2;
+			m_menu_actions.push_back(std::make_shared<Difference>(m_menu_actions[action1], m_menu_actions[action2]));
 		}
 		else if (input == "eval")
 		{

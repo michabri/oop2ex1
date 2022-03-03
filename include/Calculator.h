@@ -6,6 +6,8 @@
 #include <string>
 #include "Action.h"
 #include "Union.h"
+#include "Intersection.h"
+#include "Difference.h"
 
 class Calculator {
 public:

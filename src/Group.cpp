@@ -8,14 +8,15 @@ Group::Group()
 //-----------------------------------------------------------------------------
 Group::Group(const std::vector<int> group)
 {
-	m_group = group;
+	for (int i = 0; i < group.size(); i++)
+		m_group.push_back(group[i]);
 }
 //-----------------------------------------------------------------------------
 void Group::inputGroup() 
 {
-	int num_of_number, num;
-	std::cin >> num_of_number;
-	for (int i = 0; i < num_of_number; i++)
+	int size_of_vector, num;
+	std::cin >> size_of_vector;
+	for (int i = 0; i < size_of_vector; i++)
 	{
 		std::cin >> num;
 		m_group.push_back(num);

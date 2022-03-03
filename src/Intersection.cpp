@@ -15,31 +15,28 @@ Intersection::Intersection(const std::shared_ptr<Action> action1, const std::sha
 	m_action2 = action2;
 }
 //-----------------------------------------------------------------------------
-Group Intersection::evaluate() const
+Group Intersection::evaluate(std::ostringstream* os) const
 {
 	std::vector<int> result_group;
 
 	if (m_action1 == nullptr && m_action2 == nullptr)
 	{
 		Group a, b;
-		std::cout << "(" << a << " ^ " << b << ")";
-		std::ranges::set_union(a.getGroup(), b.getGroup(), std::back_inserter(result_group));
+		*os << "(" << a << " ^ " << b << ")";
+		std::ranges::set_intersection(a.getGroup(), b.getGroup(), std::back_inserter(result_group));
 	}
 	else
-		return evaluate(m_action1, m_action2);
-
-	std::cout << " = ";
+		return evaluate(os, m_action1, m_action2);
 	return Group(result_group);
 }
 //-----------------------------------------------------------------------------
-Group Intersection::evaluate(const std::shared_ptr<Action> action1, const std::shared_ptr<Action> action2) const
+Group Intersection::evaluate(std::ostringstream* os, std::shared_ptr<Action> action1, std::shared_ptr<Action> action2) const
 {
-	Group a(m_action1->evaluate());
-	Group b(m_action2->evaluate());
+	Group a(action1->evaluate(os));
+	*os << " ^ " ;
+	Group b(action2->evaluate(os));
+	
 	std::vector<int> result_group;
-
-	std::cout << a << " ^ " << b;
 	std::ranges::set_intersection(a.getGroup(), b.getGroup(), std::back_inserter(result_group));
-
 	return Group(result_group);
 }

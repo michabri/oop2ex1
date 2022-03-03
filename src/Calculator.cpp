@@ -11,6 +11,7 @@ Calculator::Calculator()
 void Calculator::run() 
 {
 	printMenu();
+	std::ostringstream os;
 	std::string input;
 	std::cin >> input;
 	while (input != "exit")
@@ -37,9 +38,14 @@ void Calculator::run()
 		{
 			int num;
 			std::cin >> num;
-			Group c(m_menu_actions[num]->evaluate());
-			
-			std::cout << c << "\n";
+			if (num > m_menu_actions.size() - 1)
+				std::cout << "Operation #" << num << "doesn't exist\n";
+			else
+			{
+				Group c(m_menu_actions[num]->evaluate(&os));
+				std::cout << os.str();
+				std::cout << " = " << c << "\n";
+			}
 		}
 		else if (input == "help")
 			printHelp();

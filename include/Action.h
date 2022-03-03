@@ -6,8 +6,8 @@
 
 class Action {
 public:
-	virtual Group evaluate() const = 0;
-	virtual Group evaluate(const std::shared_ptr<Action>, const std::shared_ptr<Action>) const = 0;
+	virtual Group evaluate(std::ostringstream* os) const = 0;
+	virtual Group evaluate(std::ostringstream*, std::shared_ptr<Action>, std::shared_ptr<Action>) const = 0;
 	std::shared_ptr<Action> getAction1() const;
 	std::shared_ptr<Action> getAction2() const;
 	void printAction() const;

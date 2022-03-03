@@ -4,6 +4,7 @@
 #include <algorithm>
 #include <vector>
 #include <string>
+#include <sstream>
 #include "Action.h"
 #include "Union.h"
 #include "Intersection.h"
